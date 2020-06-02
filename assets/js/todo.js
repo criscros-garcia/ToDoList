@@ -14,7 +14,7 @@ $("ul").on("click", "span", function(event){
 });
 
 $("input[type='text']").keypress(function(event){
-    if(event.which===13){
+    if(event.which===13 && $(this).val()!=""){
         var todoText = $(this).val();
         $("ul").append("<li><span><i class='fa fa-trash'></i></span>  " + todoText + "</li>");
         $(this).val("");
@@ -22,8 +22,7 @@ $("input[type='text']").keypress(function(event){
     }
 });
 
-$("h1").on("click", "i", function(){
-    var todoText = $("input[type='text']").val();
-    $("ul").append("<li><span><i class='fa fa-trash'></i></span>   " + todoText + "</li>");
-    $("input[type='text']").val("");
+$(".fa-plus").click(function(){
+    $("input[type='text']").fadeToggle();
+    $("input[type='text']").focus();
 });
